@@ -1,22 +1,22 @@
-# 1) check if a user's name is not empty
-# 2) check if the user name is a str, is a None and is longer than 5 characters 
-# 3) check if the user is either admin or a moderator
-# 4) check if the user is banned
+# 1) user's name is not empty
+# 2) user name is a str, is a None and is longer than 5 characters 
+# 3) user is either admin or a moderator, welcome them separately by name/access type if they are
+# 4) user is banned
 
 # 5) age is greater than or equal to 18
 
 # 6) password: 8 to 16 characters 2) atleast 1 symbol 3) atleast 1 number 4) atleast 1 upper case letter 5) atleast 1 lower case letter
 
-# 7) check if a user's email is not empty. Contains "@", and ends with ".com, .it, .net. .me"
-# 8) check if the user is banned or their e-mail is verified
+# 7) user's email is not empty. Contains "@", and ends with ".com, .it, .net. .me"
+# 8) user is banned or their e-mail is verified
 
 #---------------------------------------------------------------------------------------------------------------------------------
 # USER NAME
 user_banned = ("Lorenzo", "Maurizio", "Francesco", "Roberta","Ganea", "Paolo")
 user_admin = ("Daniel", "Davide", "Guido")
-user_mod = ("Roberto", "Laurent", "luca", "Paolo Enrico", "Edoardo")
+user_mod = ("Roberto", "Laurent", "Luca", "Paolo Enrico", "Edoardo")
 while True:
-    name = input("Enter your name: ").strip().capitalize().strip() # user input + dealing with upper/lowercases
+    name = input("Enter your name: ").strip().capitalize() # user input + dealing with upper/lowercases
 
     if not name: # if the input is left empty, loop again
         print("Your name can't be empty")
@@ -29,7 +29,7 @@ while True:
         print(f"{name} is banned.")
         break
     if name in user_admin or name in user_mod: # if the user is a admin/mod break the loop
-        print(f"Welcome {name}!")
+        print(f"Welcome {'Admin' if name in user_admin else 'Moderator'} {name}!") # welcomes in based on name and name type (admin/mod)
         break
     else: # if all of the above pass send this message and break the loop
       print(f"welcome in: {name}")
